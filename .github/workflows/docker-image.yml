@@ -7,12 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: last | tac | egrep "May\s*24"
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          perl -E 'say "Is STDOUT a TTY?: ", -t STDOUT ? "yes" : "no"'
