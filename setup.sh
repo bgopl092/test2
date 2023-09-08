@@ -11,6 +11,7 @@ mkdir fdisk
 cd fdisk
 wget -O 'ChromeSetup.msi' https://github.com/kmille36/thuonghai/releases/download/1.0.0/googlechromestandaloneenterprise64.msi
 websockify -D --web=/usr/share/novnc/ --cert=novnc.pem 8080 localhost:5900
+cd /root
 qemu-img create -f raw disk.img 32G
 qemu-system-x86_64 \
 -name CodespacesQemu \
